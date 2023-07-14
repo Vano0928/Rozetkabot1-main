@@ -1,7 +1,7 @@
 import json
 
 def read_json_data():
-    with open('data.json', mode = 'r', encoding='utf-8') as file:
+    with open('data\data.json', mode = 'r', encoding='utf-8') as file:
         data = json.load(file)
         return data
     
@@ -25,12 +25,12 @@ def write_register_json_data(login, password):
                                 'delivery_price' : 0}}
     }
 }
-    with open('data.json', mode = 'w', encoding='utf-8') as file:
+    with open('data\data.json', mode = 'w', encoding='utf-8') as file:
         data.update(new_data)
         json.dump(data, file, indent = 4)
 
 def write_json_data(data):
-    with open("data.json", "w") as file:
+    with open("data\data.json", "w") as file:
         json.dump(data, file, indent= 4)
         
 
