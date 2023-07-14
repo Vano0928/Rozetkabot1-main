@@ -5,9 +5,6 @@ from .keyboards import get_orders_kb, back_inline_kb, start_reply_kb
 from random import randint
 
 
-tech_break = False
-
-
 async def cmd_start(update : Update, context : ContextTypes.DEFAULT_TYPE):
     reply_kb = start_reply_kb()
     await update.message.reply_text('Привіт! Це бот інтернет магазину розетка. У цьому боті ви можете зайти в свій акаунт розетки, і подивитися інформацію про своє замовлення. Напишіть команду /help щоб подивитися всі інші команди.',
@@ -92,6 +89,10 @@ def cmd_tech_break(update : Update, context : ContextTypes.DEFAULT_TYPE):
     ...
 
 
+async def unknown_user_message(update : Update, context : ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text('Незрозуміле повідомлення')
+
+
 
 def get_handlers():
 
@@ -100,7 +101,9 @@ def get_handlers():
         CommandHandler('help', help),
         CommandHandler('add_order', add_order),
         MessageHandler(filters.Text('Подивитися свої замовлення'), send_orders),
+        MessageHandler(filters.TEXT, unknown_user_message),
         CallbackQueryHandler(callback= send_orders, pattern='back'),
         CallbackQueryHandler(callback= send_order_data)
+
 
     ]
