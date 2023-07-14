@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler, MessageHandler, filters
 from .open_json import read_json_data, write_register_json_data, write_json_data, check_if_logined, check_login_and_password
-
+from .keyboards import login_reply_kb, start_reply_kb
 
 async def cmd_register(update : Update, context : ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -42,7 +42,9 @@ async def cmd_login(update : Update, context : ContextTypes.DEFAULT_TYPE):
             data['logined tg users'][(str(user_id))] = login
             write_json_data(data)
             
-            await update.message.reply_text("Ви успішно увійшли!")
+            reply_kb = login_reply_kb()
+
+            await update.message.reply_text("Ви успішно увійшли!", reply_markup=reply_kb)
         
         else: 
             await update.message.reply_text('Ви вже входили в акаунт')
@@ -60,7 +62,8 @@ async def cmd_logout(update : Update, context : ContextTypes.DEFAULT_TYPE):
         data['logined tg users'].pop(user_id)
         write_json_data(data)
 
-        await update.message.reply_text('Ви успішно вийшли з акаунту')
+        reply_kb = start_reply_kb()
+        await update.message.reply_text('Ви успішно вийшли з акаунту', reply_markup=reply_kb)
     else:
         await update.message.reply_text('Ви ще не ввійшли в акаунт, щоб вийти з нього')
 
