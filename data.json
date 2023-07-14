@@ -1,3 +1,28 @@
 {
-    "logined_tg_users": {}
+    "logined tg users": {
+        "803678440": "a"
+    },
+    "text111": {
+        "password": "pasword228",
+        "orders": "[]"
+    },
+    "a": {
+        "password": "228",
+        "orders": {
+            "7712": {
+                "item_name": "\u041d\u0430\u0432\u0443\u0448\u043d\u0438\u043a\u0438 Sony WH xb910n",
+                "item_id": "1532",
+                "arrival_time": "16.07.2023",
+                "price": 8000,
+                "delivery_price": 100
+            },
+            "5466": {
+                "item_name": "Kingston SSDNow A400 480GB 2.5\" SATAIII 3D V-NAND (SA400S37/480G)",
+                "item_id": "3214",
+                "arrival_time": "17.07.2023",
+                "price": 1099,
+                "delivery_price": 0
+            }
+        }
+    }
 }

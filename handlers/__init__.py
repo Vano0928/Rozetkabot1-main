@@ -1,4 +1,5 @@
-from . import user
+from . import user, utils
+
 
 def get_all_handlers():
-    return user.get_handlers()
+    return user.get_handlers() + utils.get_handlers()

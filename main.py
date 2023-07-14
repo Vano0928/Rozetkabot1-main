@@ -1,7 +1,6 @@
 from telegram.ext import Application
 from handlers import get_all_handlers
 
-
 BOT_TOKEN = '6352444129:AAElfiNTmjetfMGAuBCHLzZEgtIXLvnNTEo'
 
 
